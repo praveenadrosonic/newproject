@@ -17,17 +17,21 @@ function TextForm(props) {
   const convertUppercase = () => {
     const newText = text.toUpperCase();
     setText(newText);
+    props.showAlert('success','Text Converted to UpperCase!');
   };
   const convertLowercase = () => {
     const newText = text.toLowerCase();
     setText(newText);
+    props.showAlert('success','Text Converted to LowerCase!');
   };
+  
 
   const minifyText = () => {
     let newText = text.replace(/\s/g, "");
     newText = newText.replace(/\n/g, "");
     setText(newText);
     setNoOfWords(newText.split(" ").length);
+    props.showAlert('success','Text Minified!');
   };
 
   const encodeEscapeToggle = () => {
@@ -46,14 +50,17 @@ function TextForm(props) {
       newText = newText.replace(/\s/g, "\\s");
     }
     setText(newText);
+    props.showAlert('success','Text Encoded!');
   };
 
   const clearText = () => {
     setText("");
+    props.showAlert('success','TextArea Cleared!');
   };
 
   const copytoClipboard = () => {
     navigator.clipboard.writeText(text);
+    props.showAlert('success','Copied to Clipboard!');
   };
 
   return (
@@ -65,7 +72,7 @@ function TextForm(props) {
             className={`form-label text-${
               props.mode === "dark" ? "light" : "dark"
             }`}>
-            <h2>{props.heading}</h2>
+            <h2 className="my-2">{props.heading}</h2>
           </label>
           <textarea
             className="form-control"
