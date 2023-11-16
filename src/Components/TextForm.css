@@ -1,0 +1,12 @@
+.btn.btn-primary {
+    margin-right:1%;
+    margin-top:1%;
+}
+.leftPaddingnone {
+    padding-left:0 !important;
+}
+
+.textpreview{
+    min-height:10vh;
+    padding-bottom:5vh;
+}
