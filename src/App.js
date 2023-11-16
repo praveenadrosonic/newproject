@@ -42,8 +42,8 @@ function App() {
         <Alert alert={alert}/>
       </div>
       <Routes> 
-        <Route exact path='/' element={< TextForm  mode={mode} showAlert= {showAlert}/>}></Route> 
-        <Route exact path='/aboutus' element={< AboutUs mode= {mode} title={aboutText} />}></Route>             
+        <Route exact path='/newproject/' element={< TextForm  mode={mode} showAlert= {showAlert}/>}></Route> 
+        <Route exact path='/newproject/aboutus' element={< AboutUs mode= {mode} title={aboutText} />}></Route>             
       </Routes> 
      </Router>
     </>
