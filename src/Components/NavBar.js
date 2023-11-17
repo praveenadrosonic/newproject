@@ -4,7 +4,9 @@ import './NavBar.css'
 import { Link } from 'react-router-dom';
 function TextUtils(props) {
   return (
+   
     <>
+    
     <nav className={`navbar navbar-expand-lg  bg-${props.mode} navbar-${props.mode}`}>
     <div className={`container-fluid  bg-${props.mode}`}>
         <Link className={`navbar-brand `} to="/">

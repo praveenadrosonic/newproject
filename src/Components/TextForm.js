@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import "./TextForm.css";
-let isFirst = 0;
 function TextForm(props) {
-  const [text, setText] = useState("Enter Text Here !");
+
+  const [text, setText] = useState("");
   const [noOfWords, setNoOfWords] = useState(0);
   const [noOfCharacters, setNoOfCharacters] = useState(0);
+  const [encodeBtnText, setEncodeBtnText] = useState("Encode");
+
   const onChangeofText = (event) => {
-    if (isFirst === 0) {
-      event.target.value = "";
-      isFirst = 1;
-    }
     setText(event.target.value);
     setNoOfWords(text.split(" ").length);
     setNoOfCharacters(text.length);
@@ -35,22 +33,15 @@ function TextForm(props) {
   };
 
   const encodeEscapeToggle = () => {
-    let newText;
-    let isEncoded = false;
-    for (let i = 0; i < text.length; ++i) {
-      if (text.includes("\\s") || text.includes("\\n")) {
-        isEncoded = true;
-      }
-    }
-    if (isEncoded) {
-      newText = text.replace("\n", /\n/g);
-      newText = newText.replace("s", /\s/g);
+    if(encodeBtnText === 'Encode') {
+      setEncodeBtnText('Decode');
+      setText(encodeURIComponent(text));
     } else {
-      newText = text.replace(/\n/g, "\\n");
-      newText = newText.replace(/\s/g, "\\s");
+      setEncodeBtnText('Encode');
+      setText(decodeURIComponent(text));
     }
-    setText(newText);
-    props.showAlert('success','Text Encoded!');
+    
+    props.showAlert('success',`Text ${encodeBtnText}d!`);
   };
 
   const clearText = () => {
@@ -76,6 +67,7 @@ function TextForm(props) {
           </label>
           <textarea
             className="form-control"
+            placeholder="Enter Text Here !"
             id="TextArea"
             value={text}
             onChange={onChangeofText}
@@ -92,7 +84,7 @@ function TextForm(props) {
               Minify !
             </button>
             <button className="btn btn-primary" onClick={encodeEscapeToggle}>
-              Encode/Decode
+              {encodeBtnText}
             </button>
             <button className="btn btn-primary" onClick={clearText}>
               Clear
