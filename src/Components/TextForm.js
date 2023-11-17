@@ -5,7 +5,6 @@ function TextForm(props) {
   const [text, setText] = useState("");
   const [noOfWords, setNoOfWords] = useState(0);
   const [noOfCharacters, setNoOfCharacters] = useState(0);
-  const [encodeBtnText, setEncodeBtnText] = useState("Encode");
 
   const onChangeofText = (event) => {
     setText(event.target.value);
@@ -33,15 +32,22 @@ function TextForm(props) {
   };
 
   const encodeEscapeToggle = () => {
-    if(encodeBtnText === 'Encode') {
-      setEncodeBtnText('Decode');
-      setText(encodeURIComponent(text));
-    } else {
-      setEncodeBtnText('Encode');
-      setText(decodeURIComponent(text));
+    try{
+      setText(encodeURIComponent(text)); 
+      props.showAlert('success',`Text Encoded!`);
+    } catch(e) {
+      console.err('error in encoding',e);
     }
-    
-    props.showAlert('success',`Text ${encodeBtnText}d!`);
+     
+  };
+
+  const decodeEscapeToggle = () => {
+    try{
+      setText(decodeURIComponent(text));
+      props.showAlert('success',`Text Decoded!`);
+    } catch(e) {
+      console.err('error in decoding',e);
+    } 
   };
 
   const clearText = () => {
@@ -84,7 +90,10 @@ function TextForm(props) {
               Minify !
             </button>
             <button className="btn btn-primary" onClick={encodeEscapeToggle}>
-              {encodeBtnText}
+              Encode
+            </button>
+            <button className="btn btn-primary" onClick={decodeEscapeToggle}>
+              Decode
             </button>
             <button className="btn btn-primary" onClick={clearText}>
               Clear
