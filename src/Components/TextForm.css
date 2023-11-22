@@ -6,7 +6,11 @@
     padding-left:0 !important;
 }
 
-.textpreview{
+.textpreviewparent{
     min-height:10vh;
     padding-bottom:5vh;
+}
+
+.textpreview {
+    overflow-wrap: break-word !important;
 }

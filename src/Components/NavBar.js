@@ -33,8 +33,7 @@ function TextUtils(props) {
             <label  className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.mode==='dark'?'light':'dark'} mode</label>
         </div>
         </div>
-    </div>
-    
+    </div>  
     </nav>
     </>
   );

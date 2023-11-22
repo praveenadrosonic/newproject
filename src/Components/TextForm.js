@@ -7,9 +7,10 @@ function TextForm(props) {
   const [noOfCharacters, setNoOfCharacters] = useState(0);
 
   const onChangeofText = (event) => {
-    setText(event.target.value);
-    setNoOfWords(text.split(" ").length);
-    setNoOfCharacters(text.length);
+    const newText = event.target.value;
+    setText(newText);
+    setNoOfWords(newText.split(" ").length);
+    setNoOfCharacters(newText.length);
   };
   const convertUppercase = () => {
     const newText = text.toUpperCase();
@@ -37,8 +38,7 @@ function TextForm(props) {
       props.showAlert('success',`Text Encoded!`);
     } catch(e) {
       console.err('error in encoding',e);
-    }
-     
+    }   
   };
 
   const decodeEscapeToggle = () => {
@@ -53,7 +53,7 @@ function TextForm(props) {
   const clearText = () => {
     setText("");
     props.showAlert('success','TextArea Cleared!');
-  };
+  };;
 
   const copytoClipboard = () => {
     navigator.clipboard.writeText(text);
@@ -112,7 +112,7 @@ function TextForm(props) {
             <div
               className={`my-2 container text-${
                 props.mode === "dark" ? "light" : "dark"
-              } leftPaddingnone textpreview`}>
+              } leftPaddingnone textpreviewparent`}>
               <h3>
                 Your Text Preview :
                 <button
@@ -123,7 +123,7 @@ function TextForm(props) {
                   Copy
                 </button>
               </h3>
-              <p className="border border-secondary rounded p-2 my-2">{text !== ''? text:'Your Preview Here'}</p>
+              <div   className=" textpreview border border-secondary rounded p-2 my-2 textpreview"><p>{text !== ''? text:'Your Preview Here'}</p></div>
             </div>
           </div>
         </div>
