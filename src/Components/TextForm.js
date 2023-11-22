@@ -9,7 +9,7 @@ function TextForm(props) {
   const onChangeofText = (event) => {
     const newText = event.target.value;
     setText(newText);
-    setNoOfWords(newText.split(" ").length);
+    setNoOfWords(newText.split(" ").filter((value)=>{return value.length!=0}).length);
     setNoOfCharacters(newText.length);
   };
   const convertUppercase = () => {
@@ -123,7 +123,7 @@ function TextForm(props) {
                   Copy
                 </button>
               </h3>
-              <div   className=" textpreview border border-secondary rounded p-2 my-2 textpreview"><p>{text !== ''? text:'Your Preview Here'}</p></div>
+              <div className=" textpreview border border-secondary rounded p-2 my-2 textpreview"><p>{text !== ''? text:'Your Preview Here'}</p></div>
             </div>
           </div>
         </div>
