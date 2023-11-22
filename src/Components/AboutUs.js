@@ -1,14 +1,19 @@
 import  "./AboutUs.css"
 function AboutUs(props) {
+    const styleDark = {
+        backgroundColor: "rgb(149, 120, 120)",
+        color: "white"
+    }
     return (
       <>
-        <div className="mb-3 container">
+      <div className={`bg-${props.mode} about-us-parent`}>
+        <div className={`mb-3 container bg-${props.mode}`}>
             <div className="container">
-                <h1>{props.title}</h1>
+                <h1 className={`text-${props.mode==='light'?'dark':'light'}`}>{props.title}</h1>
                 
                 <div className="accordion" id="accordionExample">
                 <div className="accordion-item">
-                    <h2 className="accordion-header">
+                    <h2 className="accordion-header" style={styleDark}>
                     <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         Accordion Item #1
                     </button>
@@ -45,6 +50,7 @@ function AboutUs(props) {
                 </div>
                 </div>
             </div>
+          </div>
           </div>
       </>
     );
