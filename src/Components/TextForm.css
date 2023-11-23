@@ -14,3 +14,8 @@
 .textpreview {
     overflow-wrap: break-word !important;
 }
+
+.textarea-dark {
+    color:white;
+    background-color: ;
+}

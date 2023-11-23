@@ -72,7 +72,8 @@ function TextForm(props) {
             <h2 className="my-2">{props.heading}</h2>
           </label>
           <textarea
-            className="form-control"
+            className={`form-control textarea-${props.mode === "dark" ? "light" : "dark"
+            }`}
             placeholder="Enter Text Here !"
             id="TextArea"
             value={text}
