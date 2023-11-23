@@ -93,30 +93,31 @@ function TextForm(props : textformProps) {
             <h2 className="my-2">{props.heading}</h2>
           </label>
           <textarea
-            className="form-control"
+            className={`form-control textarea-${props.mode==='dark'?'dark':''} text-${props.mode === "dark" ? "light" : "dark"}`}
             placeholder="Enter Text Here !"
             id="TextArea"
             value={text}
             onChange={onChangeofText}
-            rows={8}
+            rows={8} 
+            
           />
           <div className="d-flex flex-row justify-content-start">
-            <button className="btn btn-primary my-1" onClick={convertUppercase}>
+            <button disabled={text.length === 0} className="btn btn-primary my-2" onClick={convertUppercase}>
               Convert To UpperCase !
             </button>
-            <button className="btn btn-primary my-2" onClick={convertLowercase}>
+            <button disabled={text.length === 0} className="btn btn-primary my-2" onClick={convertLowercase}>
               Convert To lowerCase !
             </button>
-            <button className="btn btn-primary my-2" onClick={minifyText}>
+            <button disabled={text.length === 0} className="btn btn-primary my-2" onClick={minifyText}>
               Minify !
             </button>
-            <button className="btn btn-primary my-2" onClick={encodeEscapeToggle}>
+            <button disabled={text.length === 0} className="btn btn-primary my-2" onClick={encodeEscapeToggle}>
               Encode
             </button>
-            <button className="btn btn-primary my-2" onClick={decodeEscapeToggle}>
+            <button disabled={text.length === 0} className="btn btn-primary my-2" onClick={decodeEscapeToggle}>
               Decode
             </button>
-            <button className="btn btn-primary my-2" onClick={clearText}>
+            <button disabled={text.length === 0} className="btn btn-primary my-2" onClick={clearText}>
               Clear
             </button>
           </div>
@@ -136,7 +137,7 @@ function TextForm(props : textformProps) {
               } leftPaddingnone textpreviewparent`}>
               <h3>
                 Your Text Preview :
-                <button
+                <button disabled={text.length===0}
                   className={`btn btn-${
                     props.mode === "dark" ? "light" : "dark"
                   } mx-3`}
