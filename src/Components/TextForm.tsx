@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent} from "react";
 import "./TextForm.css";
+
 interface textformProps {
   mode?: string;
   heading?: string;
@@ -7,7 +8,6 @@ interface textformProps {
 }
 
 function TextForm(props : textformProps) {
-
   const [text, setText] = useState("");
   const [noOfWords, setNoOfWords] = useState(0);
   const [noOfCharacters, setNoOfCharacters] = useState(0);
