@@ -18,3 +18,10 @@
 .textform-parent {
     height: 100vh; 
 }
+
+.textarea-dark {
+    background-color: #6d6666;
+}
+.textarea-dark::placeholder {
+    color: white;
+}

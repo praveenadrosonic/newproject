@@ -93,12 +93,13 @@ function TextForm(props : textformProps) {
             <h2 className="my-2">{props.heading}</h2>
           </label>
           <textarea
-            className="form-control"
+            className={`form-control textarea-${props.mode==='dark'?'dark':''} text-${props.mode === "dark" ? "light" : "dark"}`}
             placeholder="Enter Text Here !"
             id="TextArea"
             value={text}
             onChange={onChangeofText}
-            rows={8}
+            rows={8} 
+            
           />
           <div className="d-flex flex-row justify-content-start">
             <button disabled={text.length === 0} className="btn btn-primary my-2" onClick={convertUppercase}>
