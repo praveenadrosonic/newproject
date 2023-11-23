@@ -1,5 +1,11 @@
+import React from "react";
 import  "./AboutUs.css"
-function AboutUs(props) {
+interface AboutUsProps {
+    mode?: string,
+    title?: string
+  }
+
+function AboutUs(props:AboutUsProps) {
     const styleDark = {
         backgroundColor: "rgb(149, 120, 120)",
         color: "white"

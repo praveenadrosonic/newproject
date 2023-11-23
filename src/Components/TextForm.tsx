@@ -1,26 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent} from "react";
 import "./TextForm.css";
-function TextForm(props) {
+interface textformProps {
+  mode?: string;
+  heading?: string;
+  showAlert?: (status:string,message:string) =>void;
+}
+
+function TextForm(props : textformProps) {
 
   const [text, setText] = useState("");
   const [noOfWords, setNoOfWords] = useState(0);
   const [noOfCharacters, setNoOfCharacters] = useState(0);
 
-  const onChangeofText = (event) => {
+  const onChangeofText = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const newText = event.target.value;
     setText(newText);
-    setNoOfWords(newText.split(" ").filter((value)=>{return value.length!==0}).length);
+    setNoOfWords(newText.split(" ").filter((value:string)=>{return value.length!==0}).length);
     setNoOfCharacters(newText.length);
   };
   const convertUppercase = () => {
     const newText = text.toUpperCase();
     setText(newText);
-    props.showAlert('success','Text Converted to UpperCase!');
+    if (props && props.showAlert) {
+      props.showAlert('success','Text Converted to UpperCase!');
+    }
   };
   const convertLowercase = () => {
     const newText = text.toLowerCase();
     setText(newText);
-    props.showAlert('success','Text Converted to LowerCase!');
+    if (props && props.showAlert) {
+      props.showAlert('success','Text Converted to LowerCase!');
+    }
   };
   
 
@@ -29,35 +39,45 @@ function TextForm(props) {
     newText = newText.replace(/\n/g, "");
     setText(newText);
     setNoOfWords(newText.split(" ").length);
-    props.showAlert('success','Text Minified!');
+    if (props && props.showAlert) {
+      props.showAlert('success','Text Minified!');
+    }
   };
 
   const encodeEscapeToggle = () => {
     try{
       setText(encodeURIComponent(text)); 
-      props.showAlert('success',`Text Encoded!`);
+      if (props && props.showAlert) {
+        props.showAlert('success',`Text Encoded!`);
+      }
     } catch(e) {
-      console.err('error in encoding',e);
+      console.error('error in encoding',e);
     }   
   };
 
   const decodeEscapeToggle = () => {
     try{
       setText(decodeURIComponent(text));
-      props.showAlert('success',`Text Decoded!`);
+      if (props && props.showAlert) {
+        props.showAlert('success',`Text Decoded!`);
+      }
     } catch(e) {
-      console.err('error in decoding',e);
+      console.error('error in decoding',e);
     } 
   };
 
   const clearText = () => {
     setText("");
-    props.showAlert('success','TextArea Cleared!');
+    if (props && props.showAlert) {
+      props.showAlert('success','TextArea Cleared!');
+    }
   };;
 
   const copytoClipboard = () => {
     navigator.clipboard.writeText(text);
-    props.showAlert('success','Copied to Clipboard!');
+    if (props && props.showAlert) {
+      props.showAlert('success','Copied to Clipboard!');
+    }
   };
 
   return (
