@@ -2,7 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './NavBar.css'
 import { Link } from 'react-router-dom';
-function TextUtils(props) {
+interface TextUtilsProps {
+    title?: string;
+    aboutText?: string;
+    mode?: string;
+    toggleMode?: () => void;
+  }
+  
+function TextUtils(props: TextUtilsProps) {
   return (
    
     <>

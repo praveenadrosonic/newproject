@@ -14,3 +14,7 @@
 .textpreview {
     overflow-wrap: break-word !important;
 }
+
+.textform-parent {
+    height: 100vh; 
+}
