@@ -1,3 +1,4 @@
+import React from "react";
 import TextForm from "./Components/TextForm";
 import AboutUs from "./Components/AboutUs";
 import NavBar from "./Components/NavBar";
@@ -7,14 +8,18 @@ import "./App.css";
 import { BrowserRouter as Router, Route,Routes} from 'react-router-dom';
 
 
+interface AlertData {
+  status: string;
+  message: string;
+}
 
 function App() {
   const textUtils = 'TextUtils';
   const aboutText = 'About Us';
-  const heading = 'Enter Your Text Below';
+  // const heading = 'Enter Your Text Below';
   const [mode,setMode] = useState('light');
-  const [alert,setAlert] = useState(null);
-  const showAlert = (status,message) => {
+  const [alert,setAlert] = useState<AlertData | null>(null);
+  const showAlert = (status :string ,message :string) => {
     setAlert({
       status:status,
       message:message
@@ -42,8 +47,8 @@ function App() {
         <Alert alert={alert}/>
       </div>
       <Routes> 
-        <Route exact path='/' element={< TextForm  mode={mode} showAlert= {showAlert}/>}></Route> 
-        <Route exact path='/aboutus' element={< AboutUs mode= {mode} title={aboutText} />}></Route>             
+        <Route  path='/' element={< TextForm  mode={mode} showAlert= {showAlert}/>}></Route> 
+        <Route  path='/aboutus' element={< AboutUs mode= {mode} title={aboutText} />}></Route>             
       </Routes> 
      </Router>
     </>
