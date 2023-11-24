@@ -21,6 +21,7 @@
 
 .textarea-dark {
     background-color: #6d6666;
+    color:white;
 }
 .textarea-dark::placeholder {
     color: white;
