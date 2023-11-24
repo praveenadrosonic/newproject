@@ -31,11 +31,9 @@ function App() {
     if(mode==='light') {
       setMode('dark');
       showAlert('success','Dark Mode Enabled !');
-      document.title = 'TextUtils - Dark Mode';
     } else {
       setMode('light');
       showAlert('success','Light Mode Enabled !');
-      document.title = 'TextUtils - Light Mode';
     }
   }
   
