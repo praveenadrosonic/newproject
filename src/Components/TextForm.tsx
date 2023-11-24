@@ -38,7 +38,7 @@ function TextForm(props : textformProps) {
     let newText = text.replace(/\s/g, "");
     newText = newText.replace(/\n/g, "");
     setText(newText);
-    setNoOfWords(newText.split(" ").length);
+    setNoOfWords(newText.split(" ").filter((value)=>{return value!=='';}).length);
     if (props && props.showAlert) {
       props.showAlert('success','Text Minified!');
     }
