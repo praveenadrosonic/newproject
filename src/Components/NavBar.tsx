@@ -37,7 +37,7 @@ function TextUtils(props: TextUtilsProps) {
         </ul>
         <div className ={`form-check form-switch text-${props.mode==='dark'?'light':'dark'}`}>
             <input  className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-            <label  className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.mode==='dark'?'light':'dark'} mode</label>
+            <label  className="form-check-label" htmlFor="flexSwitchCheckDefault">{props.mode==='dark'?'Disable':'Enable'} dark mode</label>
         </div>
         </div>
     </div>  
