@@ -50,3 +50,7 @@
 .textpreview {
     overflow-wrap: break-word !important;
 }
+
+.textarea-label {
+    margin-top: 0.5rem;
+}

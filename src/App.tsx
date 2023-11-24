@@ -16,7 +16,7 @@ interface AlertData {
 function App() {
   const textUtils = 'TextUtils';
   const aboutText = 'About Us';
-  // const heading = 'Enter Your Text Below';
+  const heading = 'Enter Text Below - Word Counter, character counter , Remove extra spaces ,Encode/Decode';
   const [mode,setMode] = useState('light');
   const [alert,setAlert] = useState<AlertData | null>(null);
   const showAlert = (status :string ,message :string) => {
@@ -45,7 +45,7 @@ function App() {
         <Alert alert={alert}/>
       </div>
       <Routes> 
-        <Route  path='/' element={< TextForm  mode={mode} showAlert= {showAlert}/>}></Route> 
+        <Route  path='/' element={< TextForm  heading={heading} mode={mode} showAlert= {showAlert}/>}></Route> 
         <Route  path='/aboutus' element={< AboutUs mode= {mode} title={aboutText} />}></Route>             
       </Routes> 
      </Router>
