@@ -10,7 +10,8 @@ function AboutUs(props:AboutUsProps) {
 
     const styleDarkButton = {
         backgroundColor: "#494949",
-        color: "#f1e1e1"
+        color: "#f1e1e1",
+        boxShadow: "reset"
     }
 
     const styleDarkAccordian = {
