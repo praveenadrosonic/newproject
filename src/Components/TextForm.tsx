@@ -134,7 +134,7 @@ function TextForm(props : textformProps) {
             <div
               className={`my-2 container text-${
                 props.mode === "dark" ? "light" : "dark"
-              } leftPaddingnone textpreviewparent`}>
+              }  leftPaddingnone textpreviewparent`}>
               <h3>
                 Your Text Preview :
                 <button disabled={text.length===0}
@@ -145,7 +145,7 @@ function TextForm(props : textformProps) {
                   Copy
                 </button>
               </h3>
-              <div className=" textpreview border border-secondary rounded p-2 my-2 textpreview"><p>{text !== ''? text:'Your Preview Here'}</p></div>
+              <div className={`textpreview border border-secondary rounded p-2 my-2 textpreview textarea-${props.mode==='dark'?'dark':''}`}><p>{text !== ''? text:'Your Preview Here'}</p></div>
             </div>
           </div>
         </div>
