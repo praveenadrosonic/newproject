@@ -1,7 +1,13 @@
 import React from 'react'
 import './Alert.css'
+interface AlertProps {
+  alert: {
+    status: string;
+    message: string;
+  } | null;
+}
 
-export default function Alert(props) {
+export default function Alert(props : AlertProps) {
     let alertStatus = '';
     if(props.alert) {
         alertStatus = props.alert.status.charAt(0).toUpperCase() + props.alert.status.slice(1) ;
