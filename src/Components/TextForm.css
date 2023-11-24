@@ -23,6 +23,9 @@
     background-color: #6d6666;
     color:white;
 }
+.textarea-dark:focus {
+    background-color: #6d6666;
+}
 .textarea-dark::placeholder {
     color: white;
 }
