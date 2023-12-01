@@ -71,7 +71,7 @@ function TextForm(props : textformProps) {
     if (props && props.showAlert) {
       props.showAlert('success','TextArea Cleared!');
     }
-  };;
+  };
 
   const copytoClipboard = () => {
     navigator.clipboard.writeText(text);
@@ -150,7 +150,7 @@ function TextForm(props : textformProps) {
           </div>
         </div>
       </div>
-      </div>
+      </div> 
     </>
   );
 }

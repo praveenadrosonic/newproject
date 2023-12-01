@@ -10,10 +10,9 @@ interface TextUtilsProps {
   }
   
 function TextUtils(props: TextUtilsProps) {
+
   return (
-   
     <>
-    
     <nav className={`navbar navbar-expand-lg  bg-${props.mode} navbar-${props.mode}`}>
     <div className={`container-fluid  bg-${props.mode}`}>
         <Link className={`navbar-brand `} to="/">
