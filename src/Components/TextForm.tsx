@@ -15,7 +15,7 @@ function TextForm(props : textformProps) {
   const onChangeofText = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const newText = event.target.value;
     setText(newText);
-    setNoOfWords(newText.split(" ").filter((value:string)=>{return value.length!==0}).length);
+    setNoOfWords(newText.split("/\s+/").filter((value:string)=>{return value.length!==0}).length+newText.split("\n").filter((value:string)=>{return value.length!==0}).length-1);
     setNoOfCharacters(newText.length);
   };
   const convertUppercase = () => {
